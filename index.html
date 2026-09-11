@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Asmi ✨🌸</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Soft Pink Ambient Glow Orbs -->
+  <div class="ambient-glow-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Floating Canvas for Flowers & Love Heart Particles -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Envelope Opening Overlay -->
+  <div id="envelopeOverlay" class="envelope-overlay">
+    <div class="envelope-card">
+      <div class="envelope-top">
+        <div class="envelope-wax-seal">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+      </div>
+      <div class="envelope-content">
+        <div class="envelope-tag">🌸 A Special Gift For 🌸</div>
+        <h1 class="envelope-recipient">Asmi</h1>
+        <p class="envelope-sub">@MissNepal 💕</p>
+        <button id="openCardBtn" class="open-card-btn">
+          <span>Open Your Birthday Card</span>
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Audio Element (Donald Av 2.m4a - Autoplay & Looped) -->
+  <audio id="bgAudio" src="Donald Av 2.m4a" loop autoplay preload="auto"></audio>
+
+  <!-- Audio Floating Controller -->
+  <div class="audio-controller-wrapper">
+    <button id="audioToggleBtn" class="audio-toggle-btn" aria-label="Toggle ambient music">
+      <div class="equalizer-icon" id="equalizerIcon">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <span class="audio-label" id="audioLabel">Play Music 🎵</span>
+    </button>
+  </div>
+
+  <!-- Main Webpage Content -->
+  <div id="mainApp" class="main-app hidden-content">
+    
+    <!-- Hero Section with Background Photo & Soft Light Pink Theme -->
+    <header class="hero-section">
+      <div class="hero-bg-photo-overlay"></div>
+      
+      <div class="hero-container glass-card">
+        
+        <!-- Animated Crown & Heart Emblem -->
+        <div class="crown-emblem">
+          <svg viewBox="0 0 100 60" class="crown-svg">
+            <path d="M10 50 L20 20 L40 38 L50 10 L60 38 L80 20 L90 50 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="20" cy="16" r="3.5" fill="currentColor"/>
+            <circle cx="50" cy="6" r="4.5" fill="currentColor"/>
+            <circle cx="80" cy="16" r="3.5" fill="currentColor"/>
+            <circle cx="10" cy="50" r="3" fill="currentColor"/>
+            <circle cx="90" cy="50" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <!-- Featured Front Page Portrait Photo Frame -->
+        <div class="hero-portrait-wrapper">
+          <div class="portrait-frame">
+            <img id="mainHeroImage" class="portrait-img" src="images/1.PNG" alt="Asmi Hero Portrait" />
+            <div class="heart-badge-float"><i class="fa-solid fa-heart"></i></div>
+            <div class="portrait-badge"><i class="fa-solid fa-crown"></i> @MissNepal</div>
+          </div>
+        </div>
+        
+        <div class="hero-subtitle-top">🌸 Celebrating Someone Truly Special 🌸</div>
+        <h1 class="hero-title">Happy Birthday, <span class="highlight-handle">@MissNepal</span> <span class="heart-accent">💖</span></h1>
+        <h2 class="hero-name">Asmi</h2>
+        
+        <div class="hero-divider">
+          <span class="line"></span>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-flower"></i>
+          <i class="fa-solid fa-heart"></i>
+          <span class="line"></span>
+        </div>
+
+        <p class="hero-tagline">
+          Sending you endless warmth, flowers, smiles, and peaceful wishes on your special day. 💕
+        </p>
+
+        <a href="#photo-gallery" class="scroll-down-indicator" aria-label="Scroll down">
+          <span>Explore 8 Special Photos & Wishes</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- 8 Photo Gallery Section -->
+    <section id="photo-gallery" class="section-padding scroll-reveal">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">💖 Capturing 8 Beautiful Memories 💖</span>
+          <h2 class="section-title">Photo Gallery & Memories 📸🌸</h2>
+          <p class="section-subtitle">Click any polaroid photo to enlarge & view details</p>
+        </div>
+
+        <div class="photo-grid grid-8-photos">
+          
+          <!-- Photo 1 -->
+          <div class="photo-card polaroid-style gallery-item" data-fullsrc="images/1.PNG" data-caption="Bright Smiles & Grace — Radiating positive energy wherever she goes. 🌸💖">
+            <div class="tape-decoration"></div>
+            <div class="photo-img-box">
+              <img src="images/1.PNG" alt="Asmi Photo 1" />
+              <div class="photo-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="photo-info">
+              <h3>Bright Smiles 🌸</h3>
+              <p>Radiating grace & positivity.</p>
+            </div>
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="photo-card polaroid-style gallery-item" data-fullsrc="images/2.PNG" data-caption="Ambition & Strength — Balancing work in Nepal & 7th semester studies. 📚✨">
+            <div class="tape-decoration"></div>
+            <div class="photo-img-box">
+              <img src="images/2.PNG" alt="Asmi Photo 2" />
+              <div class="photo-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="photo-info">
+              <h3>Ambition & Strength 📚</h3>
+              <p>7th semester studies & work.</p>
+            </div>
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="photo-card polaroid-style gallery-item" data-fullsrc="images/3.jpg" data-caption="Unforgettable Meeting — Reflecting on 22 February 2026. 🌹💕">
+            <div class="tape-decoration"></div>
+            <div class="photo-img-box">
+              <img src="images/3.jpg" alt="Asmi Photo 3" />
+              <div class="photo-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="photo-info">
+              <h3>Special Memory 🌹</h3>
+              <p>22 February 2026 💕</p>
+            </div>
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="photo-card polaroid-style gallery-item" data-fullsrc="images/4.jpeg" data-caption="Geological Engineering Passion — Exploring earth sciences with curiosity and dedication. 🏔️✨">
+            <div class="tape-decoration"></div>
+            <div class="photo-img-box">
+              <img src="images/4.jpeg" alt="Asmi Photo 4" />
+              <div class="photo-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="photo-info">
+              <h3>Engineering Passion 🏔️</h3>
+              <p>Exploring earth & science.</p>
+            </div>
+          </div>
+
+          <!-- Photo 5 -->
+          <div class="photo-card polaroid-style gallery-item" data-fullsrc="images/5.JPG" data-caption="Elegance & Poise — Carrying every responsibility with quiet strength and dignity. 👑💖">
+            <div class="tape-decoration"></div>
+            <div class="photo-img-box">
+              <img src="images/5.JPG" alt="Asmi Photo 5" />
+              <div class="photo-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="photo-info">
+              <h3>Elegance & Poise 👑</h3>
+              <p>Dignity & quiet strength.</p>
+            </div>
+          </div>
+
+          <!-- Photo 6 -->
+          <div class="photo-card polaroid-style gallery-item" data-fullsrc="images/6.png" data-caption="Peaceful Moments — May your birthday and year ahead be filled with light and tranquility. ✨🌸">
+            <div class="tape-decoration"></div>
+            <div class="photo-img-box">
+              <img src="images/6.png" alt="Asmi Photo 6" />
+              <div class="photo-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="photo-info">
+              <h3>Peace & Tranquility ✨</h3>
+              <p>May joy fill your days.</p>
+            </div>
+          </div>
+
+          <!-- Photo 7 -->
+          <div class="photo-card polaroid-style gallery-item" data-fullsrc="images/7.png" data-caption="Upcoming Exam Success — Wishing you absolute clarity, confidence and success for Tuesday! 📚🎓">
+            <div class="tape-decoration"></div>
+            <div class="photo-img-box">
+              <img src="images/7.png" alt="Asmi Photo 7" />
+              <div class="photo-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="photo-info">
+              <h3>Tuesday Exam Wishes 🎓</h3>
+              <p>Confidence & victory!</p>
+            </div>
+          </div>
+
+          <!-- Photo 8 -->
+          <div class="photo-card polaroid-style gallery-item" data-fullsrc="images/8.png" data-caption="Princess of the Day — Today is strictly about celebrating you! 👑💖🌸">
+            <div class="tape-decoration"></div>
+            <div class="photo-img-box">
+              <img src="images/8.png" alt="Asmi Photo 8" />
+              <div class="photo-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="photo-info">
+              <h3>Princess of the Day 👑</h3>
+              <p>Celebrating you today!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Important Message Section -->
+    <section id="important-message" class="section-padding scroll-reveal">
+      <div class="container">
+        <div class="glass-card message-card highlight-border">
+          <div class="card-badge"><i class="fa-solid fa-heart"></i> A Gentle Reflection</div>
+          <blockquote class="quote-text">
+            “Some meetings may be short, but some words stay with us for a very long time.”
+          </blockquote>
+          <p class="quote-caption">
+            Reflecting on a quiet memory from <span class="date-highlight">22 February 2026</span> 🌸
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Her Section -->
+    <section class="section-padding scroll-reveal">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">🌺 Admiring Her Journey 🌺</span>
+          <h2 class="section-title">Dedication, Ambition & Grace</h2>
+        </div>
+
+        <div class="grid-2-col">
+          <div class="glass-card feature-card">
+            <div class="card-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+            <h3>Geological Engineering</h3>
+            <p class="card-tag">7th Semester Student 🎓</p>
+            <p>
+              Navigating complex earth sciences and engineering with remarkable focus and curiosity. Balancing rigorous academics with unwavering determination.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <h3>Professional Life in Nepal</h3>
+            <p class="card-tag">Workplace Excellence 💼</p>
+            <p>
+              Balancing continuous professional growth while advancing her higher studies. Carrying responsibility with poise, work ethic, and quiet strength.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Exam Wish Section -->
+    <section class="section-padding scroll-reveal">
+      <div class="container">
+        <div class="glass-card exam-card">
+          <div class="exam-header">
+            <div class="exam-icon-wrapper">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div>
+              <span class="exam-badge">Starting This Coming Tuesday 📚</span>
+              <h2 class="exam-title">Best Wishes for Your Exams</h2>
+            </div>
+          </div>
+          
+          <div class="exam-quote-box">
+            <p>
+              “May every hour of your hard work come back to you as confidence, clarity and success. Believe in yourself. You have come this far for a reason.”
+            </p>
+          </div>
+
+          <div class="exam-action-wrapper">
+            <button id="examWishBtn" class="exam-interactive-btn">
+              <i class="fa-solid fa-heart"></i>
+              <span>Best wishes for your exams 📚✨</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Princess Theme Section -->
+    <section class="section-padding scroll-reveal">
+      <div class="container">
+        <div class="glass-card princess-card">
+          <div class="princess-glow"></div>
+          <div class="princess-content">
+            <div class="princess-crown-icon">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <h2 class="princess-title">“Today, you are the princess.” 👑🌸</h2>
+            <p class="princess-message">
+              Today is not about deadlines, responsibilities or expectations. Today is simply about celebrating you.
+            </p>
+            <div class="princess-decorations">
+              <span>💖 Love</span>
+              <span>🌸 Blossoms</span>
+              <span>✨ Happiness</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Birthday Message Section (The Emotional Heart) -->
+    <section class="section-padding scroll-reveal">
+      <div class="container">
+        <div class="glass-card heart-message-card">
+          <div class="heart-badge"><i class="fa-solid fa-heart"></i> A Heartfelt Note</div>
+          <p class="heart-message-text">
+            I don't know where life will take us, and I don't expect anything from you. I simply wanted to make one beautiful day a little more special by reminding you that someone genuinely wishes you happiness, success and peace.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Memory Timeline Section -->
+    <section class="section-padding scroll-reveal">
+      <div class="container">
+        <div class="glass-card memory-timeline-card">
+          <div class="memory-date">
+            <i class="fa-solid fa-calendar-heart"></i> 22 February 2026
+          </div>
+          <p class="memory-text">
+            “Some memories don't need to be long to become unforgettable.” 💕
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Birthday Wish -->
+    <footer class="section-padding final-section scroll-reveal">
+      <div class="container">
+        <div class="glass-card final-card">
+          <div class="sparkle-top">🌸 💖 🌸</div>
+          
+          <h2 class="final-wish-main">
+            Happy Birthday, Asmi. <span class="heart-accent">💖</span>
+          </h2>
+          
+          <p class="final-wish-body">
+            May this year bring you beautiful moments, meaningful success, peaceful days and everything your heart quietly wishes for.
+          </p>
+
+          <div class="final-divider"></div>
+
+          <p class="tuesday-note">
+            And for Tuesday... go show that exam what you are capable of. Best of luck. 📚✨
+          </p>
+
+          <div class="footer-credit">
+            Crafted with warmth, respect, flowers & quiet admiration. 🌸
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-overlay">
+    <div class="lightbox-content">
+      <button id="closeLightbox" class="lightbox-close">&times;</button>
+      <img id="lightboxImage" src="" alt="Full view" />
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- Interactive Exam Wish Modal -->
+  <div id="examModal" class="modal-overlay">
+    <div class="modal-card glass-card">
+      <button id="closeExamModal" class="modal-close-btn">&times;</button>
+      <div class="modal-icon"><i class="fa-solid fa-heart"></i></div>
+      <h3>Sending You Maximum Confidence! 🌟💖</h3>
+      <p>
+        Every late-night study session, every formula, and every diagram in your geological engineering studies has brought you to this moment.
+      </p>
+      <p class="modal-highlight">
+        Trust your preparation, stay calm, and take it one question at a time!
+      </p>
+      <button id="modalOkBtn" class="modal-action-btn">Thank You 🌸✨</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
